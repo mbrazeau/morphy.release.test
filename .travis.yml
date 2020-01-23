@@ -20,7 +20,7 @@ matrix:
           script:
             - cmake -G "Visual Studio 15 2017" ..
             - cmake --build . -j4
-            - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui.exe
+            - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/Debug/nui.exe
 install:
     # Get all the directories
     - git clone https://github.com/mbrazeau/morphy.release.test.git
