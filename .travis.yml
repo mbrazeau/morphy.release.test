@@ -4,7 +4,7 @@ language:
 
 matrix:
     include:
-        - os: osx
+        - os: osx linux
           addons:
             homebrew:
               packges:
