@@ -14,13 +14,13 @@ matrix:
           script:
             - cmake ..
             - cmake --build . -j4
-            - cat ../run.txt | ./nui/nui
+            - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
 
         - os: windows
           script:
             - cmake -G "Visual Studio 15 2017" ..
             - cmake --build . -j4
-            - cat ../run.txt | ./nui/nui
+            - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
 install:
     # Get all the directories
     - git clone https://github.com/mbrazeau/morphy.release.test.git
