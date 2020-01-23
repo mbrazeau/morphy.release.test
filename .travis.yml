@@ -1,0 +1,38 @@
+language: 
+  - c
+  - cxx
+
+matrix:
+    include:
+        - os: osx
+          addons:
+            homebrew:
+              packges:
+                - libedit
+          env:
+            - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
+          script:
+            - cmake ..
+            - cmake --build .
+            - cat ../run.txt | ./nui/nui
+
+        - os: windows
+          script:
+            - cmake -G "Visual Studio 15 2017" ..
+            - cmake --build .
+            - cat ../run.txt | ./nui/nui
+install:
+    # Get all the directories
+    - git clone 
+    - cd mpl
+    - git checkout development
+    - cd ../nui
+    - git checkout dev
+    - cd ..
+    - mkdir build
+
+after_success:
+  - cd ${TRAVIS_BUILD_DIR}
+  - make clean
+
+skip_cleanup: true
