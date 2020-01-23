@@ -1,0 +1,12 @@
+[submodule "mpl"]
+	path = mpl
+	url = https://github.com/mbrazeau/mpl.git
+[submodule "nui"]
+	path = nui
+	url = https://github.com/mbrazeau/nui.git
+[submodule "ncl"]
+	path = ncl
+	url = https://github.com/mtholder/ncl.git
+[submodule "wineditline"]
+	path = wineditline
+	url = https://github.com/cdesjardins/wineditline.git
