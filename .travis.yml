@@ -4,7 +4,19 @@ language:
 
 matrix:
     include:
-        - os: osx linux
+        - os: osx
+          addons:
+            homebrew:
+              packges:
+                - libedit
+          env:
+            - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
+          script:
+            - cmake ..
+            - cmake --build . -j4
+            - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
+
+        - os: linux
           addons:
             homebrew:
               packges:
