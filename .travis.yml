@@ -13,17 +13,17 @@ matrix:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
           script:
             - cmake ..
-            - cmake --build .
+            - cmake --build . -j4
             - cat ../run.txt | ./nui/nui
 
         - os: windows
           script:
             - cmake -G "Visual Studio 15 2017" ..
-            - cmake --build .
+            - cmake --build . -j4
             - cat ../run.txt | ./nui/nui
 install:
     # Get all the directories
-    - git clone 
+    - git clone https://github.com/mbrazeau/morphy.release.test.git
     - cd mpl
     - git checkout development
     - cd ../nui
