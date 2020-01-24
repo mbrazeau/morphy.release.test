@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
 # morphy nui version
-project(morphy_nui_v)
+project(morphy_nui_v VERSION 0.1)
 
-include_directories(${CMAKE_SOURCE_DIR}/../ncl ${CMAKE_SOURCE_DIR}/../mpl/include)
+configure_file(morphyNUIConfig.h.in morphyNUIConfig.h)
+
+include_directories(${CMAKE_SOURCE_DIR}/../ncl ${CMAKE_SOURCE_DIR}/../mpl/include ${CMAKE_SOURCE_DIR}/build)
 if(MSVC)
 	include_directories(${CMAKE_SOURCE_DIR}/ncl ${CMAKE_SOURCE_DIR}/mpl/include ${CMAKE_SOURCE_DIR}/../wineditline/include)
 endif()
