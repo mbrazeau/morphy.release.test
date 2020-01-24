@@ -27,12 +27,6 @@ if(MSVC)
   add_definitions(/D_CRT_SECURE_NO_WARNINGS)
 else()
   # Update if necessary
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC")
-  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
-  set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
-  set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -O3")
-  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
   if(COVERAGE)
       message(STATUS "coverage enabled")
       set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
@@ -41,6 +35,15 @@ else()
       message(STATUS "coverage disabled")
   endif()
 endif()
+
+# MDB: CMake is smart enough to re-write these for Windows, I think
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -O3")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
+
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../install")
 
