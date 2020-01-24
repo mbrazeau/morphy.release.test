@@ -83,11 +83,11 @@ def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs):
         run(make)
 #   For travis: just assume Visual Studio 15
     elif (os.environ.get('TRAVIS') == 'true'):
-        gen = "Visual Studio 15 2017"
-        cmake = "cmake .. -G"
+#        gen = "Visual Studio 15 2017"
+        cmake = 'cmake .. -G"Visual Studio 15 2017"'
         make = "cmake --build . --target install --config " + cmakeBuildType(buildDebug)
 #        cmake = cmake.split(" ")
-        cmake.append(gen)
+#        cmake.append(gen)
         run(cmake, False)
         run(make)
     else:
