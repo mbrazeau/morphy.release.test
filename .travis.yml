@@ -20,7 +20,7 @@ install:
     # Get all the directories
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then 
         sudo apt-get update;
-        sudo apt-get install -y libedit-dev;
+        sudo apt-get install -y libedit;
       fi
     - git clone https://github.com/mbrazeau/morphy.release.test.git
     - cd mpl

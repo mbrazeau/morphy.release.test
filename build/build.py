@@ -86,7 +86,7 @@ def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs):
         gen = "Visual Studio 15 2017"
         cmake = "cmake .. -G"
         make = "cmake --build . --target install --config " + cmakeBuildType(buildDebug)
-        cmake = cmake.split(" ")
+#        cmake = cmake.split(" ")
         cmake.append(gen)
         run(cmake, False)
         run(make)
