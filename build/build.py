@@ -130,6 +130,7 @@ def main(argv):
     buildDebug = False
     buildNcl = False
     buildCoverage = False
+    # Default to beta version unless "release" is specifically chosen.
     buildBeta = True
     args = ["help", "debug", "release", "clean", "verbose", "ncl"]
     if (platform.system() != "Windows"):
