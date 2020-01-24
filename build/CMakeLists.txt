@@ -45,7 +45,7 @@ endif()
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../install")
 
 if (MSVC)
-    add_subdirectory (${CMAKE_SOURCE_DIR}/wineditline ${CMAKE_CURRENT_BINARY_DIR}/../wineditline)
+    add_subdirectory (${CMAKE_SOURCE_DIR}/../wineditline ${CMAKE_CURRENT_BINARY_DIR}/../wineditline)
 endif()
 add_subdirectory(${CMAKE_SOURCE_DIR}/../ncl ${CMAKE_CURRENT_BINARY_DIR}/ncl)
 add_subdirectory(${CMAKE_SOURCE_DIR}/../mpl ${CMAKE_CURRENT_BINARY_DIR}/mpl)
