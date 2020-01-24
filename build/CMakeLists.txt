@@ -5,7 +5,7 @@ project(morphy_nui_v)
 
 include_directories(${CMAKE_SOURCE_DIR}/../ncl ${CMAKE_SOURCE_DIR}/../mpl/include)
 if(MSVC)
-	include_directories(${CMAKE_SOURCE_DIR}/ncl ${CMAKE_SOURCE_DIR}/mpl/include ${CMAKE_SOURCE_DIR}/wineditline/include)
+	include_directories(${CMAKE_SOURCE_DIR}/ncl ${CMAKE_SOURCE_DIR}/mpl/include ${CMAKE_SOURCE_DIR}/../wineditline/include)
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmakemodules")
