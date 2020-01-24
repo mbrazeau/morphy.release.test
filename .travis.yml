@@ -18,9 +18,8 @@ matrix:
 
         - os: linux
           addons:
-            homebrew:
-              packges:
-                - libedit
+              apt:
+               - libedit
           env:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
           script:
