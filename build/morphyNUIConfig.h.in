@@ -1,0 +1,2 @@
+#define morphy_nui_v_MAJOR_VERSION  @morphy_nui_v_VERSION_MAJOR@ 
+#define morphy_nui_v_MINOR_VERSION  @morphy_nui_v_VERSION_MINOR@ 
