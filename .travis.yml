@@ -17,6 +17,7 @@ matrix:
             - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
 
         - os: linux
+          dist: ubuntu
           before_install:
             - sudo apt-get install libedit
           script:
