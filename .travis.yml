@@ -25,7 +25,7 @@ matrix:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
           script:
             - cmake ..
-            - cmake --build . -j4
+            - cmake --build . -j 4
             - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
 
         - os: windows
