@@ -17,12 +17,8 @@ matrix:
             - cat ${TRAVIS_BUILD_DIR}/run.txt | ./nui/nui
 
         - os: linux
-          addons:
-              apt:
-                packages:
-                    - libedit
-          env:
-            - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
+          before_install:
+            - sudo apt-get install libedit
           script:
             - cmake ..
             - cmake --build . -j 4
