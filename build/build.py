@@ -150,8 +150,8 @@ def main(argv):
 
     if (buildClean == True):
         delBuildTree("../install")
-    if ((buildNcl == True) or (os.path.exists("../install") == False)):
-        makeNcl("../ncl", buildDebug, buildClean, buildVerbose, buildJobs)
+#    if ((buildNcl == True) or (os.path.exists("../install") == False)):
+#        makeNcl("../ncl", buildDebug, buildClean, buildVerbose, buildJobs)
     cmakeBuild(buildDebug, buildClean, buildVerbose, buildJobs, buildCoverage)
 
 if __name__ == "__main__":
