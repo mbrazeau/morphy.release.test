@@ -48,10 +48,12 @@ def cmakeBuildType(buildDebug):
         buildType = "Debug"
     return buildType
 
-def cmakeBuildPosix(buildDebug, buildVerbose, buildJobs, buildCoverage):
+def cmakeBuildPosix(buildDebug, buildVerbose, buildJobs, buildCoverage, buildBeta):
     cmake = "cmake .. -DCMAKE_BUILD_TYPE=" + cmakeBuildType(buildDebug)
     if (buildCoverage == True):
         cmake += " -DCOVERAGE=1"
+    if (buildBeta == True):
+        cmake += " -DBETA=1"
 #    make = "make -j " + buildJobs + " install"
     make = "cmake --build . -j " + buildJobs + " --target install"
     if (buildVerbose == True):
@@ -59,7 +61,7 @@ def cmakeBuildPosix(buildDebug, buildVerbose, buildJobs, buildCoverage):
     run(cmake)
     run(make)
 
-def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs):
+def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs, buildBeta):
     if ("VISUALSTUDIOVERSION" in os.environ):
         msvsVer = os.environ["VISUALSTUDIOVERSION"]
         msvsVer = msvsVer[:msvsVer.find('.')]
@@ -100,14 +102,14 @@ def cleanTarget(buildTarget, buildClean):
     if (os.path.exists(buildTarget) == False):
         os.makedirs(buildTarget)
 
-def cmakeBuild(buildDebug, buildClean, buildVerbose, buildJobs, buildCoverage):
+def cmakeBuild(buildDebug, buildClean, buildVerbose, buildJobs, buildCoverage, buildBeta):
     buildTarget = "build/"
     cleanTarget(buildTarget, buildClean)
     c = Chdir(buildTarget)
     if (platform.system() == "Windows"):
-        cmakeBuildWindows(buildDebug, buildVerbose, buildJobs)
+        cmakeBuildWindows(buildDebug, buildVerbose, buildJobs, buildBeta)
     else:
-        cmakeBuildPosix(buildDebug, buildVerbose, buildJobs, buildCoverage)
+        cmakeBuildPosix(buildDebug, buildVerbose, buildJobs, buildCoverage, buildBeta)
 
 def usage():
     print("Build the morphy software suite")
@@ -128,6 +130,7 @@ def main(argv):
     buildDebug = False
     buildNcl = False
     buildCoverage = False
+    buildBeta = True
     args = ["help", "debug", "release", "clean", "verbose", "ncl"]
     if (platform.system() != "Windows"):
         args.extend(["coverage"])
@@ -147,6 +150,7 @@ def main(argv):
             buildDebug = True
         if (opt in ('-r', '--release')):
             #pass
+            buildBeta = False
             buildCoverage = False
         if (opt in ('-c', '--clean')):
             buildClean = True
@@ -161,7 +165,7 @@ def main(argv):
         delBuildTree("../install")
 #    if ((buildNcl == True) or (os.path.exists("../install") == False)):
 #        makeNcl("../ncl", buildDebug, buildClean, buildVerbose, buildJobs)
-    cmakeBuild(buildDebug, buildClean, buildVerbose, buildJobs, buildCoverage)
+    cmakeBuild(buildDebug, buildClean, buildVerbose, buildJobs, buildCoverage, buildBeta)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
