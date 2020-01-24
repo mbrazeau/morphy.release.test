@@ -81,6 +81,15 @@ def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs):
         cmake.append(gen)
         run(cmake, False)
         run(make)
+#   For travis: just assume Visual Studio 15
+    elif (os.environ.get('TRAVIS') == 'true'):
+        gen = "Visual Studio 15 2017"
+        cmake = "cmake .. -G"
+        make = "cmake --build . --target install --config " + cmakeBuildType(buildDebug)
+        cmake = cmake.split(" ")
+        cmake.append(gen)
+        run(cmake, False)
+        run(make)
     else:
         print("Unable to find VISUALSTUDIOVERSION in env, please run from MSVS command prompt")
         sys.exit(1)
