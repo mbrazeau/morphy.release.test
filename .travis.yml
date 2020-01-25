@@ -23,6 +23,7 @@ matrix:
           before_install:
             - sudo apt-get install -y libedit-dev
           env:
+            - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
 
         - os: windows
