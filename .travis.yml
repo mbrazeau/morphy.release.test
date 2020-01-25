@@ -13,10 +13,7 @@ matrix:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
 
         - os: linux
-          apt:
-            update: true
-            packages:
-                - libedit-dev
+          dist: xenial
 
         - os: windows
 
