@@ -13,6 +13,8 @@ matrix:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
 
         - os: linux
+          env:
+            - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
 
         - os: windows
 
