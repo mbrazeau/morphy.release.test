@@ -10,7 +10,7 @@ if(MSVC)
 	include_directories(${CMAKE_SOURCE_DIR}/../wineditline/include)
 endif()
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmakemodules")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmakemodules")
 set(PATH_LIB_NCL "ncl_static")
 
 # find libedit
