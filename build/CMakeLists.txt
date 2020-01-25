@@ -35,7 +35,7 @@ if(MSVC)
   add_definitions(/D_CRT_SECURE_NO_WARNINGS)
 else()
   # Update if necessary
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -Wall -fPIC")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC")
   if (BETA) 
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DBETA")
