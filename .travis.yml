@@ -12,7 +12,6 @@ matrix:
           env:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
           script:
-            - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
             - cd ..
             - cat run.txt | ./install/bin/morphy_nui_v0b1
@@ -24,7 +23,6 @@ matrix:
           env:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
           script:
-            - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
             - cd ..
             - ls .
@@ -34,15 +32,11 @@ matrix:
 
         - os: windows
           script:
-            - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
             - cd ..
             - cat run.txt | ./install/bin/morphy_nui_v0b1.exe
 
 install:
-    # Show me the curret dir structure
-    - ls
-    - pwd
     # Get all the directories
     - git pull --recurse-submodules 
     - cd mpl
