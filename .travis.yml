@@ -26,7 +26,6 @@ matrix:
           script:
             - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
-            - cd ..
             - ls .
             - ls ..
             - pwd
@@ -36,12 +35,15 @@ matrix:
           script:
             - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
-            - cd ..
+            - cd ../..
             - cat run.txt | ./install/bin/morphy_nui_v0b1.exe
 
 install:
+    # Show me the curret dir structure
+    - ls
+    - pwd
     # Get all the directories
-    - git clone https://github.com/mbrazeau/morphy.release.test.git
+    - git pull --recurse-submodules 
     - cd mpl
     - git checkout development
     - cd ../nui
