@@ -11,6 +11,11 @@ matrix:
                 - libedit
           env:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
+          script:
+            - cd ${TRAVIS_BUILD_DIR}/build
+            - python build.py
+            - cd ..
+            - cat run.txt | ./install/bin/morphy_nui_v0b1
 
         - os: linux
           dist: xenial
@@ -18,8 +23,18 @@ matrix:
             - sudo apt-get install -y libedit-dev
           env:
             - PKG_CONFIG_PATH="/usr/local/opt/libedit/lib/pkgconfig"
+          script:
+            - cd ${TRAVIS_BUILD_DIR}/build
+            - python build.py
+            - cd ..
+            - cat run.txt | ./install/bin/morphy_nui_v0b1
 
         - os: windows
+          script:
+            - cd ${TRAVIS_BUILD_DIR}/build
+            - python build.py
+            - cd ..
+            - cat run.txt | ./install/bin/morphy_nui_v0b1.exe
 
 install:
     # Get all the directories
@@ -30,10 +45,6 @@ install:
     - git checkout dev
     - cd ..
     - cd build
-
-script:
-    - cd ${TRAVIS_BUILD_DIR}/build
-    - python build.py
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}

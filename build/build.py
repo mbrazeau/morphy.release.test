@@ -81,6 +81,8 @@ def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs, buildBeta):
         make = "cmake --build . --target install --config " + cmakeBuildType(buildDebug)
         cmake = cmake.split(" ")
         cmake.append(gen)
+        if (buildBeta == True):
+            cmake.append(" -DBETA")
         run(cmake, False)
         run(make)
 #   For travis: just assume Visual Studio 15
