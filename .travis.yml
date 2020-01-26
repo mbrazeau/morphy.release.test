@@ -27,6 +27,9 @@ matrix:
             - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
             - cd ..
+            - ls .
+            - ls ..
+            - pwd
             - cat run.txt | ./install/bin/morphy_nui_v0b1
 
         - os: windows
