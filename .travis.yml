@@ -26,16 +26,17 @@ matrix:
           script:
             - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
+            - cd ..
             - ls .
             - ls ..
-            - pwd
+            - pwd .
             - cat run.txt | ./install/bin/morphy_nui_v0b1
 
         - os: windows
           script:
             - cd ${TRAVIS_BUILD_DIR}/build
             - python build.py
-            - cd ../..
+            - cd ..
             - cat run.txt | ./install/bin/morphy_nui_v0b1.exe
 
 install:
