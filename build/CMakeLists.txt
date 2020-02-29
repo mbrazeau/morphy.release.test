@@ -54,6 +54,9 @@ else()
   endif()
 endif()
 
+if (YCMCONFIG)
+	set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endif()
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../install")
 
 if (MSVC)
