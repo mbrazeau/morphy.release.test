@@ -9,6 +9,7 @@ matrix:
             homebrew:
               packges:
                 - libedit
+              update: true
           env:
               - PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/libedit/lib/pkgconfig
           script:
