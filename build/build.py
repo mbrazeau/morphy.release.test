@@ -82,7 +82,7 @@ def cmakeBuildWindows(buildDebug, buildVerbose, buildJobs, buildBeta):
         cmake = cmake.split(" ")
         cmake.append(gen)
         if (buildBeta == True):
-            cmake.append(" -DBETA=1")
+           cmake.append("-DBETA=1")
         run(cmake, False)
         run(make)
 #   For travis: just assume Visual Studio 15
